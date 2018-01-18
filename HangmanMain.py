@@ -19,6 +19,7 @@ class Game():
     '''Holds setup functions and key gameplay data such as the word being guessed'''
     def __init__(self):
         self.word = self.wordSelect()
+        self.wordLength = len(self.word)
     
     def wordSelect(self):
         '''Selects a word from the wordList file and stores it to be used in the game'''
@@ -43,3 +44,4 @@ runGame = Game()
 print("Player Name: " + mainPlayer.name)
 print("Player Lives: " + str(mainPlayer.lives))
 print("Chosen Word: " + runGame.word)
+print("Word Length: " + str(runGame.wordLength))
