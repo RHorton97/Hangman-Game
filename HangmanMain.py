@@ -36,4 +36,9 @@ class Game():
         wordList.close()
         return word
 
+mainPlayer = Player()
+runGame = Game()
 
+print("Player Name: " + mainPlayer.name)
+print("Player Lives: " + str(mainPlayer.lives))
+print("Chosen Word: " + runGame.word)
