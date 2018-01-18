@@ -30,6 +30,7 @@ class Game():
         for i in range(wordNum+1):
             if i == wordNum:
                 word = wordList.readline()
+                word = word[:-1]
             else:
                 wordList.readline()
 
