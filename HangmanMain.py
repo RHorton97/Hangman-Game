@@ -41,6 +41,21 @@ class Game():
         wordList.close()
         return word
 
+    def beginGame(self):
+        print("The word is " + str(self.wordLength) + " letters long")
+        print(self.unguessedLetters*"_ ")
+
+    def letterGuess(self):
+        self.letterGuessed = input("What is your guess?")
+
+    def wordGuess(self):
+        self.wordGuessed = input("What is your guess?")
+        if self.wordGuessed == self.word:
+            gameWon()
+
+    def gameWon():
+        pass
+
 mainPlayer = Player()
 runGame = Game()
 
@@ -48,3 +63,4 @@ print("Player Name: " + mainPlayer.name)
 print("Player Guesses: " + str(mainPlayer.guesses))
 print("Chosen Word: " + runGame.word)
 print("Word Length: " + str(runGame.wordLength))
+runGame.beginGame()
