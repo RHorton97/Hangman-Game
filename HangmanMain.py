@@ -9,9 +9,11 @@ class Player():
         self.guesses = 5
 
     def guessDown(self):
+        '''Remove one guess from total remaining guesses'''
         self.guesses = self.guesses - 1
 
     def resetGuesses(self):
+        '''Resets guesses to five guesses'''
         self.guesses = 5
 
     
