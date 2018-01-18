@@ -33,15 +33,7 @@ class Game():
             else:
                 wordList.readline()
 
-    #wordNum range starts from 1 to ensuure that the source URL in the wordList file is never selected as the word
-    wordNum = rand.randint(1, 1000)
-    wordList = open("wordList.txt", "r")
+        wordList.close()
+        return word
 
-    for i in range(wordNum+1):
-        if i == wordNum:
-            word = wordList.readline()
-        else:
-            wordList.readline()
 
-    wordList.close()
-    return word
