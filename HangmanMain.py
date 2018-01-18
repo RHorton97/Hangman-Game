@@ -15,7 +15,12 @@ class Player():
         self.lives = 5
 
     
-def wordSelect():
+class Game():
+    '''Holds setup functions and key gameplay data such as the word being guessed'''
+    def __init__(self):
+        self.word = self.wordSelect()
+    
+    def wordSelect(self):
     '''Selects a word from the wordList file and stores it to be used in the game'''
 
     #wordNum range starts from 1 to ensuure that the source URL in the wordList file is never selected as the word
@@ -30,5 +35,3 @@ def wordSelect():
 
     wordList.close()
     return word
-
-
