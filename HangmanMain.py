@@ -4,8 +4,8 @@ import random as rand
 class Player():
     '''Class to hold player information such as the player's name and number of lives
        as well as methods to manipulate the number of lives the player has'''
-    def __init__(self, name):
-        self.name = name
+    def __init__(self):
+        self.name = input("What is your name? ")
         self.lives = 5
 
     def lifeDown(self):
