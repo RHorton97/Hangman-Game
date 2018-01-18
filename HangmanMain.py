@@ -22,6 +22,7 @@ class Game():
     def __init__(self):
         self.word = self.wordSelect()
         self.wordLength = len(self.word)
+        self.unguessedLetters = self.wordLength
     
     def wordSelect(self):
         '''Selects a word from the wordList file and stores it to be used in the game'''
