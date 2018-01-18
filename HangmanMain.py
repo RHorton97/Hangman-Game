@@ -6,13 +6,13 @@ class Player():
        as well as methods to manipulate the number of lives the player has'''
     def __init__(self):
         self.name = input("What is your name? ")
-        self.lives = 5
+        self.guesses = 5
 
-    def lifeDown(self):
-        self.lives = self.lives - 1
+    def guessDown(self):
+        self.guesses = self.guesses - 1
 
-    def resetLives(self):
-        self.lives = 5
+    def resetGuesses(self):
+        self.guesses = 5
 
     
 class Game():
@@ -42,6 +42,6 @@ mainPlayer = Player()
 runGame = Game()
 
 print("Player Name: " + mainPlayer.name)
-print("Player Lives: " + str(mainPlayer.lives))
+print("Player Guesses: " + str(mainPlayer.guesses))
 print("Chosen Word: " + runGame.word)
 print("Word Length: " + str(runGame.wordLength))
