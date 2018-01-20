@@ -6,7 +6,7 @@ mainPlayer = play.Player()
 runGame = game.Game()
 
 ###############################################################################
-#                                    TESTS                                    #
+#                                   TESTS                                     #
 ###############################################################################
 print("Player Name: " + mainPlayer.name)
 print("Player Guesses: " + str(mainPlayer.guesses))
