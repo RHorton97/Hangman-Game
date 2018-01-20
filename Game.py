@@ -2,13 +2,16 @@ import random as rand
 
 class Game():
     '''Holds setup functions and key gameplay data such as the word being guessed'''
+
+    
     def __init__(self):
         self.word = self.wordSelect()
         self.wordLength = len(self.word)
         self.unguessedLetters = self.wordLength
+        self.wordWithGuesses = self.wordForGuesses(self.word)
+        self.playerWins = False
+        self.guessWrong = False
 
-    playerWins = False
-    guessWrong = False
     
     def wordSelect(self):
         '''Selects a word from the wordList file and stores it to be used in the game'''
@@ -27,26 +30,47 @@ class Game():
         wordList.close()
         return word
 
-    def splitWord(self, word):
+
+    def wordForGuesses(self, word):
         wordListed = []
         for letter in word:
-            wordListed.append(letter)
+            wordListed.append("_")
 
         return wordListed
+
 
     def beginGame(self):
         print("The word is " + str(self.wordLength) + " letters long")
         print(self.unguessedLetters*"_ ")
 
-    def letterGuess():
-        letterGuessed = input("What is your guess? ")
 
-    def wordGuess():
+    def letterGuess(self):
+        letterGuessed = input("What is your guess? ")
+        if letterGuessed in self.word:
+            i = 0
+            for letter in self.word:
+                if letter == letterGuessed:
+                    self.wordWithGuesses[i] = letterGuessed
+                
+                i = i + 1
+        else:
+            self.guessWrong = True
+
+        self.allLettersCheck()
+
+
+    def allLettersCheck(self):
+        if "_" not in self.wordWithGuesses:
+            self.playerWins = True
+
+            
+    def wordGuess(self):
         wordGuessed = input("What is your guess? ")
         if wordGuessed == runGame.word:
-            playerWins = True
+            self.playerWins = True
         else:
-            guessDown = True
+            self.guessWrong = True
+
 
     def gameWon():
         pass
