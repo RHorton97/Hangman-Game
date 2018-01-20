@@ -6,6 +6,9 @@ class Game():
         self.word = self.wordSelect()
         self.wordLength = len(self.word)
         self.unguessedLetters = self.wordLength
+
+    playerWins = False
+    guessWrong = False
     
     def wordSelect(self):
         '''Selects a word from the wordList file and stores it to be used in the game'''
@@ -24,17 +27,26 @@ class Game():
         wordList.close()
         return word
 
+    def splitWord(self, word):
+        wordListed = []
+        for letter in word:
+            wordListed.append(letter)
+
+        return wordListed
+
     def beginGame(self):
         print("The word is " + str(self.wordLength) + " letters long")
         print(self.unguessedLetters*"_ ")
 
-    def letterGuess(self):
-        self.letterGuessed = input("What is your guess?")
+    def letterGuess():
+        letterGuessed = input("What is your guess? ")
 
-    def wordGuess(self):
-        self.wordGuessed = input("What is your guess?")
-        if self.wordGuessed == self.word:
-            gameWon()
+    def wordGuess():
+        wordGuessed = input("What is your guess? ")
+        if wordGuessed == runGame.word:
+            playerWins = True
+        else:
+            guessDown = True
 
     def gameWon():
         pass

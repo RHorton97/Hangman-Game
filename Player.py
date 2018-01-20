@@ -12,3 +12,5 @@ class Player():
     def resetGuesses(self):
         '''Resets guesses to five guesses'''
         self.guesses = 5
+
+    
