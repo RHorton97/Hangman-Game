@@ -2,8 +2,8 @@ import random as rand
 
 
 class Game():
-    '''Holds setup functions and key gameplay data such as the word being
-       guessed'''
+    """Holds setup functions and key gameplay data such as the word being
+       guessed"""
 
     def __init__(self):
         self.word = self.wordSelect()
@@ -14,8 +14,8 @@ class Game():
         self.guessWrong = False
 
     def wordSelect(self):
-        '''Selects a word from the wordList file and stores it to be used in
-           the game'''
+        """Selects a word from the wordList file and stores it to be used in
+           the game"""
 
         # wordNum range starts from 1 to ensuure that the source URL in the
         # wordList file is never selected as the word
@@ -33,6 +33,8 @@ class Game():
         return word
 
     def wordForGuesses(self, word):
+        """Creates a list containing one underscore as an element for each letter of the chosen word which is taken as
+           input to the function"""
         wordListed = []
         for letter in word:
             wordListed.append("_")
@@ -40,10 +42,16 @@ class Game():
         return wordListed
 
     def beginGame(self):
+        """Begins the game by stating the length of the word and showing a blank space with underscores to represent
+           each letter of the word"""
         print("The word is " + str(self.wordLength) + " letters long")
         print(self.unguessedLetters * "_ ")
 
     def letterGuess(self):
+        """Allows the user to input a letter as a guess, if the letter is in the word then it replaces the appropriate
+           characters in the list created by wordForGuesses, if the letter is not in the word then the player is told
+           that they were wrong. The list containing underscores and letters is displayed at the end of the function
+           each time in order to ensure it is visible to the player at all times"""
         letterGuessed = input("What is your guess? ")
         if letterGuessed in self.word:
             i = 0
@@ -53,20 +61,32 @@ class Game():
 
                 i = i + 1
         else:
+            print("Sorry, that letter isn't in the word")
             self.guessWrong = True
 
         self.allLettersCheck()
 
     def allLettersCheck(self):
+        """Checks if the player has guessed all the letters in the word correctly, if they have then the player wins
+           the game, if not the function does nothing and the game continues"""
         if "_" not in self.wordWithGuesses:
             self.playerWins = True
 
     def wordGuess(self):
+        """Allows the user to input a word as a guess, if the word is correct then the player wins the game, if the
+           word is not correct then the player is told and the list of guessed and unguessed letters is printed so that
+           it is visible to the player"""
         wordGuessed = input("What is your guess? ")
         if wordGuessed == self.word:
             self.playerWins = True
         else:
+            print("Sorry, that isn't the word")
             self.guessWrong = True
 
-    def gameWon():
-        pass
+    def gameWon(self):
+        """This function tells the player they have won"""
+        print("Game Over: You Win!")
+
+    def gameLost(self):
+        """This function tells the player they have lost"""
+        print("Game Over: You Lose!")
