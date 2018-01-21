@@ -136,4 +136,5 @@ class Game():
     def gameLost(self):
         """This function tells the player they have lost"""
         self.gameOver = True
+        print("\nThe word was " + self.word)
         print("\nGame Over: You Lose!")
