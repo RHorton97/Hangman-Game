@@ -19,10 +19,6 @@ class Game():
         """Remove one guess from total remaining guesses"""
         self.guesses = self.guesses - 1
 
-    def resetGuesses(self):
-        """Resets guesses to five guesses"""
-        self.guesses = 5
-
     def wordSelect(self):
         """Selects a word from the wordList file and stores it to be used in
            the game"""
