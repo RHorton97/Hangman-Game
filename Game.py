@@ -14,6 +14,21 @@ class Game():
         self.wordWithGuesses = self.wordForGuesses(self.word)
         self.playerWins = False
         self.guessWrong = False
+        self.gameOver = False
+
+    def beginGame(self):
+        """Begins the game by stating the length of the word and showing a blank space with underscores to represent
+           each letter of the word"""
+        print("The word is " + str(self.wordLength) + " letters long")
+        print(self.unguessedLetters * "_ " + "\n")
+
+    def resetGame(self):
+        self.gameOver = False
+        self.guesses = 5
+        self.word = self.wordSelect()
+        self.wordLength = len(self.word)
+        self.unguessedLetters = self.wordLength
+        self.wordWithGuesses = self.wordForGuesses(self.word)
 
     def guessDown(self):
         """Remove one guess from total remaining guesses"""
@@ -46,12 +61,6 @@ class Game():
             wordListed.append("_")
 
         return wordListed
-
-    def beginGame(self):
-        """Begins the game by stating the length of the word and showing a blank space with underscores to represent
-           each letter of the word"""
-        print("The word is " + str(self.wordLength) + " letters long")
-        print(self.unguessedLetters * "_ " + "\n")
 
 
     def letterGuess(self):
