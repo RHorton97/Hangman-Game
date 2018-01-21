@@ -21,7 +21,11 @@ playGame = True
 while playGame == True:
     validType = False
     while validType == False:
-        guessType = int(input("Press 1 to guess a letter or press 2 to guess the word. "))
+        guessType = input("Press 1 to guess a letter or press 2 to guess the word. ")
+        try:
+            guessType = int(guessType)
+        except ValueError:
+            continue
         if guessType == 1 or 2:
             validType = True
 
