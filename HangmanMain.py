@@ -38,3 +38,6 @@ while playGame == True:
         if mainPlayer.guesses <= 0:
             runGame.gameLost()
             playGame = False
+    elif runGame.playerWins == True:
+        runGame.gameWon()
+        playGame = False
