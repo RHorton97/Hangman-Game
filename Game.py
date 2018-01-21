@@ -62,6 +62,19 @@ class Game():
 
         return wordListed
 
+    def wordGuess(self):
+        """Allows the user to input a word as a guess, if the word is correct then the player wins the game, if the
+           word is not correct then the player is told and the list of guessed and unguessed letters is printed so that
+           it is visible to the player"""
+        wordGuessed = input("What is your guess? ")
+        if wordGuessed == self.word:
+            self.playerWins = True
+            print("Congratulations! You guessed correctly, the word was " + self.word + "!")
+            self.gameWon()
+        else:
+            print("Sorry, that isn't the word")
+            self.guessDown()
+            self.lifeCheck()
 
     def letterGuess(self):
         """Allows the user to input a letter as a guess, if the letter is in the word then it replaces the appropriate
@@ -78,7 +91,8 @@ class Game():
                 i = i + 1
         else:
             print("Sorry, that letter isn't in the word")
-            self.guessWrong = True
+            self.guessDown()
+            self.lifeCheck()
 
         self.allLettersCheck()
 
@@ -100,6 +114,7 @@ class Game():
            letters value"""
         if "_" not in self.wordWithGuesses:
             self.playerWins = True
+            self.gameWon()
         else:
             i = 0
             for letter in self.wordWithGuesses:
@@ -109,22 +124,16 @@ class Game():
                     continue
             self.unguessedLetters = i
 
-    def wordGuess(self):
-        """Allows the user to input a word as a guess, if the word is correct then the player wins the game, if the
-           word is not correct then the player is told and the list of guessed and unguessed letters is printed so that
-           it is visible to the player"""
-        wordGuessed = input("What is your guess? ")
-        if wordGuessed == self.word:
-            self.playerWins = True
-            print("Congratulations! You guessed correctly, the word was " + self.word + "!")
-        else:
-            print("Sorry, that isn't the word")
-            self.guessWrong = True
+    def lifeCheck(self):
+        if self.guesses <= 0:
+            self.gameLost()
 
     def gameWon(self):
         """This function tells the player they have won"""
+        self.gameOver = True
         print("\nGame Over: You Win!")
 
     def gameLost(self):
         """This function tells the player they have lost"""
+        self.gameOver = True
         print("\nGame Over: You Lose!")
