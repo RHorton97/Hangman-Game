@@ -131,10 +131,10 @@ class Game():
     def gameWon(self):
         """This function tells the player they have won"""
         self.gameOver = True
-        print("\nGame Over: You Win!")
+        print("\nCongratulations " + self.name + "! You Win!")
 
     def gameLost(self):
         """This function tells the player they have lost"""
         self.gameOver = True
         print("\nThe word was " + self.word)
-        print("\nGame Over: You Lose!")
+        print("\nSorry " + self.name + ". You Lose!")
