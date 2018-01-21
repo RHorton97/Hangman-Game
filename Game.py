@@ -66,11 +66,32 @@ class Game():
 
         self.allLettersCheck()
 
+        if self.playerWins == False:
+            if self.unguessedLetters == 1:
+                print("There is " + str(self.unguessedLetters) + " letter left to guess\n")
+            else:
+                print("There are " + str(self.unguessedLetters) + " letters left to guess\n")
+
+            showWordGuesses = ""
+            for letter in self.wordWithGuesses:
+                showWordGuesses = showWordGuesses + letter + " "
+
+            print(showWordGuesses + "\n")
+
     def allLettersCheck(self):
         """Checks if the player has guessed all the letters in the word correctly, if they have then the player wins
-           the game, if not the function does nothing and the game continues"""
+           the game, if not the function determines how many letters are left to be guessed and updates the unguessed
+           letters value"""
         if "_" not in self.wordWithGuesses:
             self.playerWins = True
+        else:
+            i = 0
+            for letter in self.wordWithGuesses:
+                if letter == "_":
+                    i = i + 1
+                else:
+                    continue
+            self.unguessedLetters = i
 
     def wordGuess(self):
         """Allows the user to input a word as a guess, if the word is correct then the player wins the game, if the
@@ -79,6 +100,7 @@ class Game():
         wordGuessed = input("What is your guess? ")
         if wordGuessed == self.word:
             self.playerWins = True
+            print("Congratulations! You guessed correctly, the word was " + self.word + "!")
         else:
             print("Sorry, that isn't the word")
             self.guessWrong = True
