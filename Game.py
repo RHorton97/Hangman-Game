@@ -6,12 +6,22 @@ class Game():
        guessed"""
 
     def __init__(self):
+        self.name = input("What is your name? ")
+        self.guesses = 5
         self.word = self.wordSelect()
         self.wordLength = len(self.word)
         self.unguessedLetters = self.wordLength
         self.wordWithGuesses = self.wordForGuesses(self.word)
         self.playerWins = False
         self.guessWrong = False
+
+    def guessDown(self):
+        """Remove one guess from total remaining guesses"""
+        self.guesses = self.guesses - 1
+
+    def resetGuesses(self):
+        """Resets guesses to five guesses"""
+        self.guesses = 5
 
     def wordSelect(self):
         """Selects a word from the wordList file and stores it to be used in

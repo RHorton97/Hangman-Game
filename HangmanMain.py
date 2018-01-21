@@ -1,15 +1,13 @@
-import Player as play
 import Game as game
 
 # Initialises gameplay class objects
-mainPlayer = play.Player()
 runGame = game.Game()
 
 ###############################################################################
 #                                   TESTS                                     #
 ###############################################################################
-#print("Player Name: " + mainPlayer.name)                                     #
-#print("Player Guesses: " + str(mainPlayer.guesses))                          #
+#print("Player Name: " + runGame.name)                                     #
+#print("Player Guesses: " + str(runGame.guesses))                          #
 print("Chosen Word: " + runGame.word)                                        #
 #print("Word Length: " + str(runGame.wordLength))                             #
                                                                               #
@@ -37,9 +35,9 @@ while playGame == True:
         raise ValueError("Invalid guess type selection")
 
     if runGame.guessWrong == True:
-        mainPlayer.guessDown()
+        runGame.guessDown()
         runGame.guessWrong = False
-        if mainPlayer.guesses <= 0:
+        if runGame.guesses <= 0:
             runGame.gameLost()
             playGame = False
     elif runGame.playerWins == True:
