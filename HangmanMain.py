@@ -6,8 +6,8 @@ runGame = game.Game()
 ###############################################################################
 #                                   TESTS                                     #
 ###############################################################################
-#print("Player Name: " + runGame.name)                                     #
-#print("Player Guesses: " + str(runGame.guesses))                          #
+#print("Player Name: " + runGame.name)                                        #
+#print("Player Guesses: " + str(runGame.guesses))                             #
 print("Chosen Word: " + runGame.word)                                        #
 #print("Word Length: " + str(runGame.wordLength))                             #
                                                                               #
