@@ -19,7 +19,8 @@ class Game():
     def beginGame(self):
         """Begins the game by stating the length of the word and showing a blank space with underscores to represent
            each letter of the word"""
-        print("The word is " + str(self.wordLength) + " letters long")
+        print("You have " + str(self.guesses) + " wrong guesses")
+        print("\nThe word is " + str(self.wordLength) + " letters long")
         print(self.unguessedLetters * "_ " + "\n")
 
     def resetGame(self):
@@ -126,7 +127,10 @@ class Game():
 
     def lifeCheck(self):
         if self.guesses <= 0:
+            print("You have no wrong guesses remaining")
             self.gameLost()
+        else:
+            print("You have " + str(self.guesses) + " wrong guesses left")
 
     def gameWon(self):
         """This function tells the player they have won"""
