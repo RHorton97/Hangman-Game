@@ -8,12 +8,12 @@ runGame = game.Game()
 ###############################################################################
 #                                   TESTS                                     #
 ###############################################################################
-#print("Player Name: " + mainPlayer.name)
-#print("Player Guesses: " + str(mainPlayer.guesses))
-print("Chosen Word: " + runGame.word)
-#print("Word Length: " + str(runGame.wordLength))
-
-#runGame.beginGame()
+#print("Player Name: " + mainPlayer.name)                                     #
+#print("Player Guesses: " + str(mainPlayer.guesses))                          #
+print("Chosen Word: " + runGame.word)                                        #
+#print("Word Length: " + str(runGame.wordLength))                             #
+                                                                              #
+#runGame.beginGame()                                                          #
 ###############################################################################
 
 runGame.beginGame()

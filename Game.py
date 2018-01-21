@@ -45,7 +45,8 @@ class Game():
         """Begins the game by stating the length of the word and showing a blank space with underscores to represent
            each letter of the word"""
         print("The word is " + str(self.wordLength) + " letters long")
-        print(self.unguessedLetters * "_ ")
+        print(self.unguessedLetters * "_ " + "\n")
+
 
     def letterGuess(self):
         """Allows the user to input a letter as a guess, if the letter is in the word then it replaces the appropriate
@@ -107,8 +108,8 @@ class Game():
 
     def gameWon(self):
         """This function tells the player they have won"""
-        print("Game Over: You Win!")
+        print("\nGame Over: You Win!")
 
     def gameLost(self):
         """This function tells the player they have lost"""
-        print("Game Over: You Lose!")
+        print("\nGame Over: You Lose!")
